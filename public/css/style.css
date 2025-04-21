@@ -198,7 +198,7 @@ a {
     position: fixed;
     height: 5.5rem;
     width: 100%;
-    background-color: var(--color-variation-1);
+    background-color: var(--color-variation-2);
     color: var(--color-main);
     z-index: 20;
     top: 0;
@@ -271,7 +271,7 @@ a {
 }
 
 .footer {
-    background-color: var(--color-variation-1);
+    background-color: var(--color-variation-2);
     color: var(--color-main);
     font-size: var(--font-size-small);
     padding: 6rem 0;
@@ -617,6 +617,9 @@ form h1 {
     align-items: flex-start;
 }
 
+.gift__section {
+    padding: 10rem 0;
+}
 .gift__section h2 {
     text-transform: uppercase;
     text-align: center;
