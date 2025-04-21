@@ -203,7 +203,7 @@ a {
     z-index: 20;
     top: 0;
     left: 0;
-    box-shadow: 0 1px 15px 5px rgba(14, 0, 152, 0.3);
+    box-shadow: 0 1px 15px 5px rgba(14, 0, 152, 0.2);
 }
 .header__container {
     height: 100%;
