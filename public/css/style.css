@@ -860,7 +860,7 @@ form h1 {
     .header__ul.active {
         display: flex;
         opacity: 1;
-        bottom: -13.4rem;
+        bottom: -10rem;
     }
     .header__profile__name {
         display: none;
