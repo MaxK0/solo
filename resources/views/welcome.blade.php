@@ -53,7 +53,7 @@
     </section>
 
     <section class="about__section">
-        <div class="container">
+        <div class="container about__container">
 {{--            <img src="{{ asset('/img/tigr.png') }}" class="keys__tigr">--}}
 
             <h2>SOLO - высокий уровень сервиса, качество и душа</h2>
