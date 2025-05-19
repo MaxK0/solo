@@ -135,7 +135,7 @@ a {
 
 .link-nav {
     font-family: "Nunito", sans-serif;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-normal);
     color: var(--color-main);
     opacity: 0.8;
 }
@@ -197,7 +197,7 @@ a {
 
 .header {
     position: fixed;
-    height: 5.5rem;
+    height: 6rem;
     width: 100%;
     background-color: var(--color-variation-2);
     color: var(--color-main);
@@ -230,7 +230,10 @@ a {
     display: none;
 }
 .header__title a {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-normal);
+}
+.header__title img {
+    width: 5.2rem;
 }
 .header__profile {
     position: relative;
