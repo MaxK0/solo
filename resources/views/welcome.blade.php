@@ -4,7 +4,8 @@
     <section class="title__section">
         <div class="container title__container">
             <div class="title__info">
-                <h1>SOLO nail studio</h1>
+                <h1>Студия ногтевого сервиса SOLO<br>
+                    Студия в стиле DIOR</h1>
                 <p>Мы создали пространство, где вы отдохнете, насладитесь атмосферой и почувствуете высокий профессионализм наших мастеров.</p>
             </div>
             <div class="title__slider">
