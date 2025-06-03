@@ -757,6 +757,91 @@ form h1 {
     border-radius: var(--border-radius);
 }
 
+.reviews-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: scroll;
+}
+
+.reviews-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.reviews-group {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.review-card {
+    background: var(--color-variation-2);
+    color: var(--color-main);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: calc(33.333% - 10px);
+    min-width: 300px;
+}
+
+.review-stars {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.star.filled {
+    color: #FFD700;
+}
+
+.star {
+    color: #ddd;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.review-author {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.carousel-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: #333;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #555;
+}
+
+
 @media (max-width: 1600px) {
     .container {
         width: 75%;

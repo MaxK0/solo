@@ -135,12 +135,52 @@
             </div>
         </div>
     </section>
+
+    <section class="reviews-container">
+        <div class="container">
+            <h2 class="section-title">Отзывы</h2>
+
+            <div class="reviews-carousel">
+                <button class="carousel-button prev" id="prevReview">❮</button>
+
+                <div class="reviews-wrapper">
+                    @foreach($reviews->chunk(3) as $chunk)
+                        <div class="reviews-group">
+                            @foreach($chunk as $review)
+                                <div class="review-card">
+                                    <div class="review-stars">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if($i <= $review->stars)
+                                                <span class="star filled">★</span>
+                                            @else
+                                                <span class="star">☆</span>
+                                            @endif
+                                        @endfor
+                                    </div>
+                                    <p class="review-text">"{{ $review->text }}"</p>
+                                    <p class="review-author">{{ $review->name }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
+
+                <button class="carousel-button next" id="nextReview">❯</button>
+            </div>
+
+            <div class="carousel-dots">
+                @for($i = 0; $i < ceil(count($reviews)/3); $i++)
+                    <span class="dot {{ $i === 0 ? 'active' : '' }}" data-index="{{ $i }}"></span>
+                @endfor
+            </div>
+        </div>
+    </section>
 @endsection
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const items = document.querySelectorAll('.title__img');
-        let currentIndex = 0;
+        let curInd = 0;
 
         function showItem(index) {
             items.forEach((item, i) => {
@@ -149,11 +189,11 @@
         }
 
         function nextItem() {
-            currentIndex = (currentIndex + 1) % items.length;
-            showItem(currentIndex);
+            curInd = (curInd + 1) % items.length;
+            showItem(curInd);
         }
 
-        showItem(currentIndex);
+        showItem(curInd);
 
         setInterval(nextItem, 3000);
 
@@ -161,24 +201,50 @@
         const itemsNails = document.querySelectorAll('.nails__img');
         let currentIndexNails = 0;
 
-        function showItems(startIndex) {
-            itemsNails.forEach((item, index) => {
-                if (index >= startIndex && index < startIndex + 3) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
+        const reviewsWrapper = document.querySelector('.reviews-wrapper');
+        const reviewGroups = document.querySelectorAll('.reviews-group');
+        const prevBtn = document.getElementById('prevReview');
+        const nextBtn = document.getElementById('nextReview');
+        const dots = document.querySelectorAll('.dot');
+
+        let currentIndex = 0;
+        const totalGroups = reviewGroups.length;
+
+        // Сначала скрываем все группы кроме первой
+        reviewGroups.forEach((group, index) => {
+            group.style.display = index === 0 ? 'flex' : 'none';
+        });
+
+        // Функция для обновления видимой группы
+        function updateCarousel() {
+            reviewGroups.forEach((group, index) => {
+                group.style.display = index === currentIndex ? 'flex' : 'none';
+            });
+
+            // Обновляем активные точки
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
             });
         }
 
-        function nextItems() {
-            currentIndexNails = (currentIndexNails + 1) % (itemsNails.length - 2);
-            showItems(currentIndexNails);
-        }
+        // Переход к предыдущей группе
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalGroups - 1;
+            updateCarousel();
+        });
 
-        showItems(currentIndexNails);
-        setInterval(nextItems, 3000);
+        // Переход к следующей группе
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex < totalGroups - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
 
+        // Переход по клику на точки
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                currentIndex = parseInt(this.getAttribute('data-index'));
+                updateCarousel();
+            });
+        });
     });
-
 </script>

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Enums\StatusEnum;
+use App\Models\Review;
 
 class SiteController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        $reviews = Review::latest()->get();
+
+        return view('welcome', compact('reviews'));
     }
 
     public function profile()
