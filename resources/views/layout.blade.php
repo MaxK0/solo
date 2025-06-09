@@ -81,11 +81,15 @@
 {{--                            <span class="inst-banned">*</span>--}}
                         </i>
                     </a>
+                    <a href="https://n1030883.yclients.com/company/955919/personal/menu?o=" target="_blank" class="link-nav order">Записаться</a>
                 </div>
             </div>
             <p class="footer__copyright">© SOLO Nail Studio</p>
         </div>
     </footer>
+</div>
+<div id="back-to-top" class="back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
 </div>
 </body>
 <script>
@@ -132,6 +136,23 @@
             if (!headerUl.contains(event.target) && !menuButton.contains(event.target)) {
                 headerUl.classList.remove('active');
             }
+        });
+
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > window.innerHeight) { // 100vh
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     });
 </script>
