@@ -201,6 +201,24 @@
         const itemsNails = document.querySelectorAll('.nails__img');
         let currentIndexNails = 0;
 
+        function showItems(startIndex) {
+            itemsNails.forEach((item, index) => {
+                if (index >= startIndex && index < startIndex + 3) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function nextItems() {
+            currentIndexNails = (currentIndexNails + 1) % (itemsNails.length - 2);
+            showItems(currentIndexNails);
+        }
+
+        showItems(currentIndexNails);
+        setInterval(nextItems, 3000);
+
         const reviewsWrapper = document.querySelector('.reviews-wrapper');
         const reviewGroups = document.querySelectorAll('.reviews-group');
         const prevBtn = document.getElementById('prevReview');
